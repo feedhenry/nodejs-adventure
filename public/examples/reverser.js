@@ -13,8 +13,7 @@ util.inherits(Reverser, stream.Stream);
 
 // Do the reversing
 Reverser.prototype.write = function(data) {
-  var self = this;
-  self.emit('data', data.split("").reverse().join("") + "\n");
+  this.emit('data', data.split("").reverse().join("") + "\n");
 };
 
 // handling 'end' is required, should also handle 'error', 'destroy', etc

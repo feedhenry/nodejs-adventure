@@ -79,9 +79,10 @@
             <ul> 
               <li>Core REST API Services</li>
               <li class="fragment">SSJS Node.js PAAS and external PAAS integrations</li>
-              <li class="fragment">Cli Tools & Testing</li>
+              <li class="fragment">REST Client libraries, CLI Tools & Testing</li>
               <li class="fragment">"Websites"</li>
               <li class="fragment">DevOps type tools</li>
+              <img src="/images/tigger.jpg">
             </ul>
         </section>
 
@@ -106,8 +107,6 @@
 
         <section title="SSJS Node.js PAAS">
             <ul> 
-              <li>DynoFarm</li>
-                <ul><li>Sandboxed Node.js Execution Environment</li></ul>
               <li>CloudFoundry</li>
                 <ul><li><a href="http://git.io/vmcjs">vmcjs</a> module: <a href="http://git.io/vmcjs">http://git.io/vmcjs</a></li>                    
                     <li><a href="http://ironfoundry.org">Iron Foundry <img src="images/ironfoundry.png"</img></a></li>
@@ -115,19 +114,30 @@
                     <li><a href="http://www.activestate.com/stackato/">Stackato <img src="images/stackato.png"</img></a></li>
                     <li><a href="http://cloudfoundry.com/">Public Cloudfoundry.com <img src="images/cloudfoundry.png"</img></a></li>
                 </ul>
+              <li>DynoFarm</li>
+                <ul>
+                  <li>Sandboxed Node.js Execution Environment</li>
+                </ul>
             </ul>
         </section>        
 
-        <section title="Dino what now??">
-          <img src="/images/dino.jpg" width="100%" height="100%">
-        </section>
-
         <section title="DynoFarm">
-          <ul><li>Sandboxing technologies</li>
-            <li>OS level virtualisation</li>
-            <img src="/images/dyno.png">
-            <li>init, sshd, cron, redis, monit ~3M</li>
-            <li>each node app ~15M</li>
+          <ul>
+            <li>Sandbox users node.js applications</li>
+            <li class="fragment">IAAS/PAAS</li>
+            <li class="fragment">Dyno === type of VM </li>
+            <ul>
+              <li class="fragment">OS level virtualization VM </li>
+              <li class="fragment">ISP provided VM</li>
+              <li class="fragment">Hypervisor provided VM</li>
+            </ul>
+            <li class="fragment">Dyno Container</li>
+            <img class="fragment" src="/images/dyno.png">
+            <li class="fragment">Resource usage</li>
+            <ul>
+              <li class="fragment">init, sshd, cron, redis, monit ~3M</li>
+              <li class="fragment">each node app ~15M</li>
+            </ul>
           </ul>          
         </section>
 
@@ -139,11 +149,11 @@
             <img src="/images/raid.jpg">
         </section>
 
-        <section title="CLI Tools and Testing">
+        <section title="REST Client Libraries, CLI Tools and Testing">
             <ul> 
               <li>FHC <a href="http://git.io/fhc">http://git.io/fhc</a> and several internal tools</li>
-              <li class="fragment">Interface with JSON based REST services</li>
-              <li class="fragment">Modular libraries can be 'required' from other node applications (Services and Tests)</li>
+              <li class="fragment">Client libraries that Interface with internal REST services</li>
+              <li class="fragment">Modular libraries can be 'required' from other node applications (i.e. used from other services and tests)</li>
               <img class="fragment" src="/images/cli.jpg"</img>
             </ul>
         </section>
@@ -165,11 +175,11 @@
         <section title="DevOps Tools">
             <ul>
                <li>Bash rocks!</li>
-              <ul class="fragment"><li>'userland' tools</li>
-                  <li>Admin jobs</li>
-              </ul>               
-              <li class="fragment">Tight error handling, 'set -e'</li>
-              <li class="fragment">Or check return codes individually:
+              <ul>
+                <li>Node interface to 'userland' tools</li>
+                <li>  e.g. iptables, LVM, LXC</li>
+                <li class="fragment">Tight error handling, 'set -e'</li>
+                <li class="fragment">Or check return codes individually:
           <pre><code contenteditable>ssh $cmd
 ret=$?
 if [[ $ret != 0 ]] ; then
@@ -177,7 +187,11 @@ if [[ $ret != 0 ]] ; then
   exit $ret
 fi </code></pre>
               </li>
-              <li class="fragment">Node -> Bash and Bash -> Node === STREAMS!!</li>
+              </ul>               
+              <ul>               
+                <li class="fragment">General admin jobs</li>
+                <li class="fragment">Node -> Bash and Bash -> Node === STREAMS!!</li>
+              </ul>               
             </ul>
         </section>
 
@@ -245,7 +259,7 @@ $ nc localhost 3000
             <li>Inter-mix bash and node, e.g</li>
             <pre class="fragment"><code contenteditable>
 $ bash-script1.sh | node1.js | bash-cmd2
-$ for i in `node1.js <foo>`; do bash-cmd1 $1; done
+$ for i in `node2.js <foo>`; do bash-cmd1 $1; done
             </code></pre> 
           <li  class="fragment">Worlds simplest data stream 
             <small><a href="examples/reverser.js">(reverser.js)</a></small>
@@ -266,8 +280,7 @@ util.inherits(Reverser, stream.Stream);
 
 // Do the reversing
 Reverser.prototype.write = function(data) {
-  var self = this;
-  self.emit('data', data.split("").reverse().join("") + "\n");
+  this.emit('data', data.split("").reverse().join("") + "\n");
 };
 
 // handling 'end' is required, should also handle 'error', 'destroy', etc
@@ -302,7 +315,7 @@ reverser.pipe(process.stdout);
         <section title="Final word on Streams..">
           <ul>
             <li>First class citizen in node.js</li>
-            <li class="fragment">Unified interface for data</li>
+            <li class="fragment">Unified interface for data.. at scale!</li>
             <li class="fragment">Universal plugin architecture</li>
             <li class="fragment">Checkout:</li>
             <ul >
@@ -310,6 +323,7 @@ reverser.pipe(process.stdout);
               <li class="fragment"><a href="git://github.com/dominictarr/JSONStream.git">git://github.com/dominictarr/JSONStream.git</a></li>
             <ul>
           </ul>
+          <img src="/images/pipes.jpg"</img>
         </section>
 
         <section title="Node.js - the pleasure and pain">
@@ -318,7 +332,7 @@ reverser.pipe(process.stdout);
               <li class="fragment">Callback hell - use async module everywhere</li>
               <li class="fragment">Keep modules small & tight</li>
               <li class="fragment">Code coverage in unit tests</li>
-              <li class="fragment">Error handling, learn to love 
+              <li class="fragment">Error handling, learn to love: 
                  <pre><code contenteditable>if(err) return callback(err);</code></pre>
                 Checked Exceptions are the real hell!
              </li> 
@@ -341,6 +355,7 @@ reverser.pipe(process.stdout);
 
         <section title="We're hiring!">
           See <a href="http://www.feedhenry.com/home/company/careers/">feedhenry.com/careers</a>
+          <img src="/images/party.jpg"</img>
         </section>        
       </div>
 
