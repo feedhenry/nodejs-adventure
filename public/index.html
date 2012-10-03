@@ -1,0 +1,391 @@
+<!doctype html>  
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    
+    <title>The FeedHenry Node.js Adventure</title>
+
+    <meta name="description" content="A tale of FeedHenrys adventures with node.js">
+    <meta name="author" content="Damian Beresford">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+<header>
+  <img align="left" src="/css/theme/images/logo.gif"</img><h1 id="slideTitle" align="right"></h1><hr>
+</header>
+    
+    <div class="reveal">
+
+      <!-- Used to fade in a background when a specific slide state is reached -->
+      <div class="state-background"></div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section title="">
+          <h2>The FeedHenry Node.js Adventure</h2>
+          <h4><small>October 2012</small></h4>
+           <p><i> - <a href="http://www.feedhenry.com/blog">John Frizelle</a> / <a href="http://twitter.com/johnfriz">@johnfriz</a></i></p>
+          <p><i>- <a href="http://www.feedhenry.com/blog">Damian Beresford</a> / <a href="http://twitter.com/dberesford">@dberesford</a></i></p>          
+          <p><small><a href="http://bit.ly/POwh6L">http://bit.ly/POwh6L</a></small></p>
+          <img src="/images/adventure.jpg">
+        </section>
+
+        <section title="Adventure Timeline">
+          <ul> 
+            <li>2008</li>
+            <ul class="fragment"> 
+              <li>Used Rhino</li>
+              <li>Limited functionality</li>
+              <li>Legacy code base</li>
+              <li>Difficult to meet business needs</li>
+            </ul>
+            <li class="fragment">2011</li>
+            <ul class="fragment"> 
+              <li>Start of Node.js Adventure</li>
+              <li>Slowly slowy catchee monkey</li>
+            </ul>
+            <li class="fragment">2012</li>
+            <ul class="fragment">
+              <li>All new FeedHenry business services on Node</li>
+              <li>Enterprise customers running on Node</li>
+              <li>Little legacy remains, rapid development of new features</li>
+            </ul>
+          </ul>
+        </section>
+        
+        <section title="What we do with Node.js Today">
+            <ul> 
+              <li>Core REST API Services</li>
+              <li class="fragment">SSJS Node.js PAAS and external PAAS integrations</li>
+              <li class="fragment">Cli Tools & Testing</li>
+              <li class="fragment">"Websites"</li>
+              <li class="fragment">DevOps type tools</li>
+            </ul>
+        </section>
+
+        <section title="REST API Services">
+            <ul> 
+              <li>Analytics/Reporting</li>
+                <ul><li>Node/Mongo </li></ul>
+              <li class="fragment">Source Code Management</li>
+                <ul class="fragment"><li>Node/Git </li></ul>
+              <li class="fragment">DITCH</li>
+                <ul class="fragment"><li>Node/Mongo </li></ul>
+              <li class="fragment">Core Orchestration Service</li>
+                <ul class="fragment"><li>Node/legacy integration (java/tomcat)</li>
+                    <li>Node/Redis</li>
+                </ul>
+              <li class="fragment">Stats Service</li>
+                <ul class="fragment"><li>Node/Statsd/Graphite </li></ul>
+              <li class="fragment">Sync Framework</li>
+                <ul class="fragment"><li>Soon to be followed by Sync Service</li></ul>
+            </ul>
+        </section>
+
+        <section title="SSJS Node.js PAAS">
+            <ul> 
+              <li>DynoFarm</li>
+                <ul><li>Sandboxed Node.js Execution Environment</li></ul>
+              <li>CloudFoundry</li>
+                <ul><li><a href="http://git.io/vmcjs">vmcjs</a> module: <a href="http://git.io/vmcjs">http://git.io/vmcjs</a></li>                    
+                    <li><a href="http://ironfoundry.org">Iron Foundry <img src="images/ironfoundry.png"</img></a></li>
+                    <li><a href="http://www.appfog.com/">App Fog <img src="images/appfog.png"</img></a></li>
+                    <li><a href="http://www.activestate.com/stackato/">Stackato <img src="images/stackato.png"</img></a></li>
+                    <li><a href="http://cloudfoundry.com/">Public Cloudfoundry.com <img src="images/cloudfoundry.png"</img></a></li>
+                </ul>
+            </ul>
+        </section>        
+
+        <section title="Dino what now??">
+          <img src="/images/dino.jpg" width="100%" height="100%">
+        </section>
+
+        <section title="DynoFarm">
+          <ul><li>Sandboxing technologies</li>
+            <li>OS level virtualisation</li>
+            <img src="/images/dyno.png">
+            <li>init, sshd, cron, redis, monit ~3M</li>
+            <li>each node app ~15M</li>
+          </ul>          
+        </section>
+
+        <section title="">
+            <img src="/images/dubai.jpg">
+        </section>
+
+        <section title="">
+            <img src="/images/raid.jpg">
+        </section>
+
+        <section title="CLI Tools and Testing">
+            <ul> 
+              <li>FHC <a href="http://git.io/fhc">http://git.io/fhc</a> and several internal tools</li>
+              <li class="fragment">Interface with JSON based REST services</li>
+              <li class="fragment">Modular libraries can be 'required' from other node applications (Services and Tests)</li>
+              <img class="fragment" src="/images/cli.jpg"</img>
+            </ul>
+        </section>
+
+        <section title="Websites">
+            <ul> 
+              <li>fh-studio</li>
+              <ul><li><a href="https://github.com/feedhenry/fh-studio">http://github.com/feedhenry/fh-studio</a></li>
+                  <li>Cian's blogpost: <a href="http://www.feedhenry.com/2012/07/building-a-developer-studio-in-nodejs/">http://www.feedhenry.com/2012/07/building-a-developer-studio-in-nodejs/</a></li>
+              </ul>
+              <li class="fragment">Documentation Server (<a href="http://docs.feedhenry.com">docs.feedhenry.com</a>)</li>
+              <li class="fragment">Mobile Web Sites</li>
+                <ul><li class="fragment">Built by our customers</li>
+                    <li class="fragment">This presentation :-) <a href="http://bit.ly/POwh6L">http://bit.ly/POwh6L</a></li>
+                </ul>
+            </ul>
+        </section>
+
+        <section title="DevOps Tools">
+            <ul>
+               <li>Bash rocks!</li>
+              <ul class="fragment"><li>'userland' tools</li>
+                  <li>Admin jobs</li>
+              </ul>               
+              <li class="fragment">Tight error handling, 'set -e'</li>
+              <li class="fragment">Or check return codes individually:
+          <pre><code contenteditable>ssh $cmd
+ret=$?
+if [[ $ret != 0 ]] ; then
+  echo "Bad return code from ssh '$cmd', exiting: $ret" 1>&2
+  exit $ret
+fi </code></pre>
+              </li>
+              <li class="fragment">Node -> Bash and Bash -> Node === STREAMS!!</li>
+            </ul>
+        </section>
+
+        <section title="Streams baby!">
+          <ul> 
+            <li>Streams and Node.js</li>
+               <ul>
+                 <li class="fragment">No buffering</li>
+                 <li class="fragment">Essential for highly scalable web servers</li>
+                 <li class="fragment">Readable/Writable/Duplex/Backpressure</li>
+               </ul>
+             <li class="fragment">How we use Streams</li>
+              <ul class="fragment"</ul>
+                <li>Serving content</li>
+                <pre class="fragment"><code contenteditable>
+http.createServer(function (req, res) {
+...
+   return fs.createReadStream(bigFile).pipe(res);
+};
+                </code></pre>
+          </ul>
+        </section>
+
+        <section title="How we use Streams - proxying socket traffic">
+          <ul> 
+            <li>HTTP/HTTPS</li>
+            <li>SSH</li>
+            <li>Worlds simplest socket proxy example:
+              <small><a href="examples/proxy.js">(proxy.js)</a></small>
+            </li>
+
+          <pre><code contenteditable>
+#!/usr/bin/env node
+var net = require('net');
+
+var proxyServer = net.createServer(function(client){
+  // create onward connection to target server on port 2200
+  var targ = net.createConnection(2000, function(){
+    client.pipe(targ);
+    targ.pipe(client);
+  });
+});
+
+proxyServer.listen(3000, function(){
+  console.log("listening on 3000");
+});
+
+
+/* Now run the following in individual shells:
+
+# run our server on port 2000
+$ nc -l 2000 
+# run our proxy on port 3000
+$ ./proxy.js
+# client connection to our proxy on 3000
+$ nc localhost 3000 
+# anything you type in client shell should appear on server 
+# and visa versa, typing in the server shell will appear in client
+*/
+          </code></pre>
+        </section>
+
+        <section title="How we use Streams - Data pipes/Bash">
+          <ul>
+            <li>Inter-mix bash and node, e.g</li>
+            <pre class="fragment"><code contenteditable>
+$ bash-script1.sh | node1.js | bash-cmd2
+$ for i in `node1.js <foo>`; do bash-cmd1 $1; done
+            </code></pre> 
+          <li  class="fragment">Worlds simplest data stream 
+            <small><a href="examples/reverser.js">(reverser.js)</a></small>
+            <small><a href="examples/stdinsplitter.js">(stdinsplitter.js)</a></small>
+          </li>
+<pre class="fragment"><code contenteditable>#!/usr/local/bin/node
+
+var util = require('util');
+var stream = require('stream');
+var stdinsplitter = require('./stdinsplitter.js');
+
+// Reverser Stream - reverse any data piped in
+function Reverser() {
+  this.writable = true;
+  this.readable = true;
+}
+util.inherits(Reverser, stream.Stream);
+
+// Do the reversing
+Reverser.prototype.write = function(data) {
+  var self = this;
+  self.emit('data', data.split("").reverse().join("") + "\n");
+};
+
+// handling 'end' is required, should also handle 'error', 'destroy', etc
+Reverser.prototype.end = function() {
+  this.emit('end');
+};
+
+// Check something is being streamed in.. 
+if (!process.stdin.readable || process.stdin.readable !== true) { 
+  console.log("No stdin stream to process.. Stream me some data, e.g. ls -1 |./reverse.js");
+  process.exit(1);
+}
+
+// Create our Read/Write Streamers
+var splitter = new stdinsplitter.StdinSplitter();
+var reverser = new Reverser();
+
+// un-pause the stdin stream
+process.stdin.resume();
+
+// set up pipe plumbing:
+// stdin | splitter | reverser | stdout
+process.stdin.pipe(splitter);
+splitter.pipe(reverser);
+reverser.pipe(process.stdout);
+
+// Note Common gotcha - if a stream uses async functions internally, pass { end: false }
+</code></pre>
+          </ul>
+        </section>
+
+        <section title="Final word on Streams..">
+          <ul>
+            <li>First class citizen in node.js</li>
+            <li class="fragment">Unified interface for data</li>
+            <li class="fragment">Universal plugin architecture</li>
+            <li class="fragment">Checkout:</li>
+            <ul >
+              <li class="fragment">Substacks Steam Handbook <a href="git://github.com/substack/stream-handbook.git">git://github.com/substack/stream-handbook.git</a></li>
+              <li class="fragment"><a href="git://github.com/dominictarr/JSONStream.git">git://github.com/dominictarr/JSONStream.git</a></li>
+            <ul>
+          </ul>
+        </section>
+
+        <section title="Node.js - the pleasure and pain">
+            <ul> 
+              <li>Javascript love/hate relationship</li>
+              <li class="fragment">Callback hell - use async module everywhere</li>
+              <li class="fragment">Keep modules small & tight</li>
+              <li class="fragment">Code coverage in unit tests</li>
+              <li class="fragment">Error handling, learn to love 
+                 <pre><code contenteditable>if(err) return callback(err);</code></pre>
+                Checked Exceptions are the real hell!
+             </li> 
+              <li class="fragment">Node inspector for debugging</li>
+              <li class="fragment">Node in Production - Joyent rock</li>
+            </ul>
+        </section>
+        
+        <section title="Top node.js modules used in FeedHenry">
+            <ul> 
+              <li>Node.js community and ecosystem totally rock</li>
+              <li><a href="https://npmjs.org/package/async">Aysnc</a></li>
+              <li><a href="https://npmjs.org/package/request">Request</a></li>
+              <li><a href="https://npmjs.org/package/connect">Connect</a></li>
+              <li><a href="https://npmjs.org/package/expresso">Expresso</a></li>
+              <li>See top modules on <a href="https://npmjs.org/">https://npmjs.org</a></li>
+             </ul>
+        </section>
+
+        <section title="We're hiring!">
+          See <a href="http://www.feedhenry.com/home/company/careers/">feedhenry.com/careers</a>
+        </section>        
+      </div>
+
+      <!-- The navigational controls UI -->
+      <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+      </aside>
+
+      <!-- Presentation progress bar -->
+      <div class="progress"><span></span></div>
+      
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+      
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        
+        theme: Reveal.getQueryHash().theme || 'simple', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+          { src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+        ]
+      });
+
+
+Reveal.addEventListener( 'slidechanged', function( event ) {
+   console.log(event.currentSlide.title);
+   document.getElementById("slideTitle").innerHTML=event.currentSlide.title;
+} );
+    </script>
+  </body>
+</html>
