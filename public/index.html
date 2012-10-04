@@ -151,8 +151,8 @@
 
         <section title="REST Client Libraries, CLI Tools and Testing">
             <ul> 
-              <li>FHC <a href="http://git.io/fhc">http://git.io/fhc</a> and several internal tools</li>
-              <li class="fragment">Client libraries that Interface with internal REST services</li>
+              <li>Client libraries that Interface with internal REST services</li>
+              <li class="fragment">FHC <a href="http://git.io/fhc">http://git.io/fhc</a> and several internal tools</li>
               <li class="fragment">Modular libraries can be 'required' from other node applications (i.e. used from other services and tests)</li>
               <img class="fragment" src="/images/cli.jpg"</img>
             </ul>
@@ -174,7 +174,7 @@
 
         <section title="DevOps Tools">
             <ul>
-               <li>Bash rocks!</li>
+               <li>Bash in the Platform</li>
               <ul>
                 <li>Node interface to 'userland' tools</li>
                 <li>  e.g. iptables, LVM, LXC</li>
@@ -199,6 +199,7 @@ fi </code></pre>
           <ul> 
             <li>Streams and Node.js</li>
                <ul>
+                 <li class="fragment">Sequence of data made available over time</ul>
                  <li class="fragment">No buffering</li>
                  <li class="fragment">Essential for highly scalable web servers</li>
                  <li class="fragment">Readable/Writable/Duplex/Backpressure</li>
@@ -223,8 +224,7 @@ http.createServer(function (req, res) {
               <small><a href="examples/proxy.js">(proxy.js)</a></small>
             </li>
 
-          <pre><code contenteditable>
-#!/usr/bin/env node
+          <pre><code contenteditable>#!/usr/bin/env node
 var net = require('net');
 
 var proxyServer = net.createServer(function(client){
@@ -238,7 +238,6 @@ var proxyServer = net.createServer(function(client){
 proxyServer.listen(3000, function(){
   console.log("listening on 3000");
 });
-
 
 /* Now run the following in individual shells:
 
@@ -259,14 +258,12 @@ $ nc localhost 3000
             <li>Inter-mix bash and node, e.g</li>
             <pre class="fragment"><code contenteditable>
 $ bash-script1.sh | node1.js | bash-cmd2
-$ for i in `node2.js <foo>`; do bash-cmd1 $1; done
             </code></pre> 
           <li  class="fragment">Worlds simplest data stream 
             <small><a href="examples/reverser.js">(reverser.js)</a></small>
             <small><a href="examples/stdinsplitter.js">(stdinsplitter.js)</a></small>
           </li>
 <pre class="fragment"><code contenteditable>#!/usr/local/bin/node
-
 var util = require('util');
 var stream = require('stream');
 var stdinsplitter = require('./stdinsplitter.js');
@@ -306,6 +303,8 @@ process.stdin.resume();
 process.stdin.pipe(splitter);
 splitter.pipe(reverser);
 reverser.pipe(process.stdout);
+
+// example test run: $ ls -1|./reverser.js
 
 // Note Common gotcha - if a stream uses async functions internally, pass { end: false }
 </code></pre>
