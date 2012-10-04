@@ -199,7 +199,7 @@ fi </code></pre>
           <ul> 
             <li>Streams and Node.js</li>
                <ul>
-                 <li class="fragment">Sequence of data made available over time</ul>
+                 <li class="fragment">Sequence of data made available over time</li>
                  <li class="fragment">No buffering</li>
                  <li class="fragment">Essential for highly scalable web servers</li>
                  <li class="fragment">Readable/Writable/Duplex/Backpressure</li>
@@ -287,7 +287,7 @@ Reverser.prototype.end = function() {
 
 // Check something is being streamed in.. 
 if (!process.stdin.readable || process.stdin.readable !== true) { 
-  console.log("No stdin stream to process.. Stream me some data, e.g. ls -1 |./reverse.js");
+  console.error("No stdin stream to process.. Stream me some data, e.g. ls -1 |./reverse.js");
   process.exit(1);
 }
 
@@ -306,7 +306,7 @@ reverser.pipe(process.stdout);
 
 // example test run: $ ls -1|./reverser.js
 
-// Note Common gotcha - if a stream uses async functions internally, pass { end: false }
+// Note common gotcha - if a stream uses async functions internally, pass { end: false }
 </code></pre>
           </ul>
         </section>

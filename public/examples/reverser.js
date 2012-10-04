@@ -23,7 +23,7 @@ Reverser.prototype.end = function() {
 
 // Check something is being streamed in.. 
 if (!process.stdin.readable || process.stdin.readable !== true) { 
-  console.log("No stdin stream to process.. Stream me some data, e.g. ls -1 |./reverse.js");
+  console.error("No stdin stream to process.. Stream me some data, e.g. ls -1 |./reverse.js");
   process.exit(1);
 }
 
@@ -40,5 +40,5 @@ process.stdin.pipe(splitter);
 splitter.pipe(reverser);
 reverser.pipe(process.stdout);
 
-// Note Common gotcha - if a stream uses async functions internally, pass { end: false }
+// Note common gotcha - if a stream uses async functions internally, pass { end: false }
 
