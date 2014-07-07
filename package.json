@@ -1,1 +1,9 @@
-{"name":"fhembed","description":"FeedHenry embed static file server","version":"0.1.0","dependencies":{"connect":"2.4.5"}}
+{
+  "name": "fhembed",
+  "description": "FeedHenry embed static file server",
+  "version": "0.1.0",
+  "dependencies": {
+    "connect": "2.4.5"
+  },
+  "license": "Copyright (c) 2014 FeedHenry Ltd, All Rights Reserved."
+}
